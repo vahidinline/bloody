@@ -1,24 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './../App.css';
 import { Container } from '@mui/system';
-import { Grid, LinearProgress, Paper, Typography } from '@mui/material';
-import Carousel from 'react-material-ui-carousel';
+import { Grid, Input, LinearProgress, Paper, Typography } from '@mui/material';
 import Tables from './Tables';
 import CircleProgressBar from './CircleProgressBar';
 import list from '../data/bloodies';
 import ListOfcities from './ListOfCities';
+import Map from './Map';
+
 function Home() {
   const [loading, setLoading] = useState(false);
   const [itemsLenth, setItemsLenth] = useState(0);
   const [Location, setLocation] = useState('');
-  const [uniqueLocation, setUniqueLocation] = useState('');
+  const [search, setSearch] = useState('');
+  const [filteredList, setFilteredList] = new useState(list);
 
   const getLocations = async () => {
     list.map((item) => {
-      setLocation((prev) => [...prev, item.Location]);
-      //console.log([...new Set(Location)]);
-      setUniqueLocation(new Set(Location));
-      //console.log(uniqueLocation);
+      setLocation((prev) => new Set([...prev, item.Location]));
     });
   };
 
@@ -50,7 +49,14 @@ function Home() {
       </Paper>
     );
   }
-
+  const filterBySearch = (event) => {
+    const query = event.target.value;
+    var updatedList = [...list];
+    updatedList = updatedList.filter((item) => {
+      return item.name.indexOf(query.toLowerCase()) !== -1;
+    });
+    setFilteredList(updatedList);
+  };
   return (
     <Container>
       <Grid container spacing={2}>
@@ -71,13 +77,7 @@ function Home() {
                 margin: 'auto',
                 marginTop: '120px',
               }}>
-              <Carousel indicators={false} navButtonsAlwaysInvisible={true}>
-                {list.map((item, i) => (
-                  <>
-                    <Item key={i} item={item} />
-                  </>
-                ))}
-              </Carousel>
+              <Map />
             </Grid>
           )}
         </Grid>
@@ -89,12 +89,13 @@ function Home() {
             <Typography>تعداد قربانیان</Typography>
 
             <CircleProgressBar numbers={itemsLenth} />
-            <ListOfcities cities={uniqueLocation} />
+            <ListOfcities cities={Location} />
+            <Input placeholder="جستجو" onChange={filterBySearch} />
           </Grid>
         </Grid>
       </Grid>
       <Grid>
-        <Tables list={list} />
+        <Tables list={filteredList} search={search} />
       </Grid>
     </Container>
   );
