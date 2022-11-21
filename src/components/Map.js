@@ -1,12 +1,13 @@
 import React from 'react';
 import Map from 'react-map-gl';
 
-const Maps = () => {
+const Maps = (props) => {
+  const { latitude, longitude } = props;
   return (
     <Map
       initialViewState={{
-        latitude: 32.4279,
-        longitude: 53.688,
+        latitude: latitude,
+        longitude: longitude,
         zoom: 8,
       }}
       mapStyle={'mapbox://styles/mapbox/streets-v11'}

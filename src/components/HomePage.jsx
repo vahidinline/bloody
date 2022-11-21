@@ -6,7 +6,6 @@ import Tables from './Tables';
 import CircleProgressBar from './CircleProgressBar';
 import list from '../data/bloodies';
 import ListOfcities from './ListOfCities';
-import Map from './Map';
 
 function Home() {
   const [loading, setLoading] = useState(false);
@@ -76,21 +75,40 @@ function Home() {
                 width: '100%',
                 margin: 'auto',
                 marginTop: '120px',
-              }}>
-              <Map />
-            </Grid>
+              }}></Grid>
           )}
         </Grid>
         <Grid xs={12} md={2}>
           <Grid
             sx={{
               marginTop: '120px',
+              display: 'contents',
+              justifyContent: 'center',
+              alignItems: 'center',
+              textAlign: 'center',
             }}>
-            <Typography>تعداد قربانیان</Typography>
+            <Typography
+              sx={{
+                fontFamily: 'Lalezar',
+                fontSize: '4rem',
+                textAlign: 'center',
+              }}>
+              تعداد قربانیان
+            </Typography>
 
             <CircleProgressBar numbers={itemsLenth} />
-            <ListOfcities cities={Location} />
-            <Input placeholder="جستجو" onChange={filterBySearch} />
+
+            <Input
+              sx={{
+                width: '50%',
+                marginTop: '20px',
+                marginBottom: '20px',
+                textAlign: 'center',
+                fontFamily: 'Lalezar',
+              }}
+              placeholder="جستجو"
+              onChange={filterBySearch}
+            />
           </Grid>
         </Grid>
       </Grid>
