@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './../App.css';
 import { Container } from '@mui/system';
 import { Grid, Input, LinearProgress, Paper, Typography } from '@mui/material';
@@ -6,8 +6,12 @@ import Tables from './Tables';
 import CircleProgressBar from './CircleProgressBar';
 import list from '../data/bloodies';
 import ListOfcities from './ListOfCities';
+import './../config/i18n';
+import { useTranslation } from 'react-i18next';
+import Navbars from './navbar';
 
 function Home() {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [itemsLenth, setItemsLenth] = useState(0);
   const [Location, setLocation] = useState('');
@@ -58,6 +62,7 @@ function Home() {
   };
   return (
     <Container>
+      <Navbars />
       <Grid container spacing={2}>
         <Grid item xs={12} md={10}>
           {loading ? (
@@ -87,16 +92,10 @@ function Home() {
               alignItems: 'center',
               textAlign: 'center',
             }}>
-            <Typography
-              sx={{
-                fontFamily: 'Lalezar',
-                fontSize: '4rem',
-                textAlign: 'center',
-              }}>
-              تعداد قربانیان
-            </Typography>
-
             <CircleProgressBar numbers={itemsLenth} />
+            <Typography variant="h6" component="div" gutterBottom>
+              {t('hometitle.text')}
+            </Typography>
 
             <Input
               sx={{

@@ -9,7 +9,7 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 
-export default function SearchAppBar() {
+export default function Navbars() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">

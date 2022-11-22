@@ -1,8 +1,7 @@
 import './App.css';
 import { Container } from '@mui/system';
-import { Grid } from '@mui/material';
+import { CssBaseline, Grid } from '@mui/material';
 import Home from './components/HomePage';
-import SearchAppBar from './components/navbar';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Details from './components/Details';
 
@@ -19,10 +18,11 @@ const router = createBrowserRouter([
 function App() {
   return (
     <RouterProvider router={router}>
+      <CssBaseline />
+
       <Container>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <SearchAppBar />
             <Home />
           </Grid>
         </Grid>

@@ -12,8 +12,7 @@ import {
 
 const languageMap = {
   en: { label: 'English', dir: 'ltr', active: true },
-  ar: { label: 'العربية', dir: 'rtl', active: false },
-  fr: { label: 'Français', dir: 'ltr', active: false },
+  fa: { label: 'فارسی', dir: 'rtl', active: false },
 };
 
 const LanguageSelect = () => {
