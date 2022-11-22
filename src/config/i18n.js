@@ -7,7 +7,7 @@ i18n
       en: {
         translation: {
           hometitle: {
-            text: 'bloody november 2019',
+            text: 'Bloody november 2019',
           },
           infotext: {
             text: `

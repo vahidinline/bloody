@@ -11,6 +11,7 @@ import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Fade from '@mui/material/Fade';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet';
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -56,6 +57,10 @@ const Details = (props) => {
   console.log(location);
   return (
     <Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{location.state.row.name}</title>
+      </Helmet>
       <Toolbar id="back-to-top-anchor" />
       <Container>
         <Grid>

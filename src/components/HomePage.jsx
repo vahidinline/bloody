@@ -8,6 +8,7 @@ import list from '../data/bloodies';
 import './../config/i18n';
 import { useTranslation } from 'react-i18next';
 import Navbars from './navbar';
+import { Helmet } from 'react-helmet';
 
 function Home() {
   const { t } = useTranslation();
@@ -43,6 +44,10 @@ function Home() {
   };
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{t('hometitle.text')}</title>
+      </Helmet>
       <Grid container spacing={2} m={4}></Grid>
       <Grid>
         <Grid

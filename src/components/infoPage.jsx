@@ -7,6 +7,7 @@ import list from '../data/bloodies';
 import CircleProgressBar from './CircleProgressBar';
 import { red } from '@mui/material/colors';
 import ListOfcities from './ListOfCities';
+import { Helmet } from 'react-helmet';
 
 const Info = () => {
   const { t } = useTranslation();
@@ -17,6 +18,10 @@ const Info = () => {
   }, []);
   return (
     <Grid spacing={24}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{t('hometitle.text')}</title>
+      </Helmet>
       <Grid item xs={12} md={12} m={3}>
         <Typography
           variant="h6"
