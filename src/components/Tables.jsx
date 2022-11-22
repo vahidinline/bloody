@@ -63,7 +63,15 @@ const Tables = (props) => {
     <>
       <TableContainer component={Paper}>
         <Table
-          sx={{ minWidth: '100%', direction: 'rtl', textAlign: 'center' }}
+          sx={{
+            minWidth: '50%',
+            direction: 'rtl',
+            textAlign: 'center',
+            width: '50%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: 'auto',
+          }}
           aria-label="simple table">
           <TableBody>
             {list.map((row) => (
@@ -78,17 +86,21 @@ const Tables = (props) => {
                 <TableCell
                   sx={{
                     fontFamily: 'Noto Sans Arabic',
+                    fontSize: '1.2rem',
+                    fontWeight: 'bold',
                   }}
                   align="center">
                   {row.name}
                 </TableCell>
-                <TableCell
+                {/* <TableCell
                   sx={{
                     fontFamily: 'Noto Sans Arabic',
+                    fontSize: '1.2rem',
+                    fontWeight: 'bold',
                   }}
                   align="center">
                   {row.Age}
-                </TableCell>
+                </TableCell> */}
 
                 <TableCell align="center">
                   <img src={row.ImageT} alt={row.name} />

@@ -47,7 +47,7 @@ const ResponsiveAppBar = () => {
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '0',
               color: 'inherit',
               textDecoration: 'none',
             }}>
@@ -126,9 +126,11 @@ const ResponsiveAppBar = () => {
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '0',
               color: 'inherit',
               textDecoration: 'none',
+              fontSize: '1rem',
+              m: 1,
             }}>
             {t('hometitle.text')}
           </Typography>

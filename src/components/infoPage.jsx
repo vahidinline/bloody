@@ -29,8 +29,8 @@ const Info = () => {
           gutterBottom
           sx={{
             textAlign: 'center',
-            fontweight: 'bold',
-            fontSize: '3.5rem',
+            fontWeight: 'bold',
+            fontSize: '4rem',
             fontFamily: 'Noto Sans Arabic',
             color: '#880808',
           }}>
@@ -46,6 +46,7 @@ const Info = () => {
             textAlign: 'center',
             lineHeight: '2rem',
             margin: '30px',
+            fontWeight: 'bold',
             fontFamily: lange === 'fa' ? 'Noto Sans Arabic' : 'Roboto',
             direction: lange === 'fa' ? 'rtl' : 'ltr',
           }}>

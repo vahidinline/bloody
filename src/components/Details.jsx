@@ -135,12 +135,24 @@ const Details = (props) => {
                 fontSize: '1rem',
                 textAlign: 'center',
               }}>
+              {t('detailsDate.text')}
+              {location.state.row.Date}
+            </Typography>
+          </Grid>
+          <Grid>
+            <Typography
+              sx={{
+                fontFamily: 'Noto Sans Arabic',
+                fontSize: '1rem',
+                textAlign: 'center',
+              }}>
               {t('detailsLocation.text')}
               {location.state.row.Location}
             </Typography>
           </Grid>
           <Grid item xs={12} m={0}>
             <Maps latitude={'35.8439'} longitude={'50.9715'} />
+            {/* I'd like to pass the real latitude and longitude in the next round */}
           </Grid>
         </Grid>
       </Container>
