@@ -6,6 +6,7 @@ import Navbars from './navbar';
 import list from '../data/bloodies';
 import CircleProgressBar from './CircleProgressBar';
 import { red } from '@mui/material/colors';
+import ListOfcities from './ListOfCities';
 
 const Info = () => {
   const { t } = useTranslation();
@@ -36,6 +37,10 @@ const Info = () => {
           variant="body1"
           gutterBottom
           sx={{
+            justifyContent: 'justify',
+            textAlign: 'center',
+            lineHeight: '2rem',
+            margin: '30px',
             fontFamily: lange === 'fa' ? 'Noto Sans Arabic' : 'Roboto',
             direction: lange === 'fa' ? 'rtl' : 'ltr',
           }}>

@@ -7,20 +7,16 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import DropdownLanguage from '../languageSelect';
 import { Link } from '@mui/material';
-
-const pages = [
-  { name: 'Home', href: '/' },
-  { name: 'List', href: '/home' },
-];
+import LangContext from '../config/LangContext';
+import { useTranslation } from 'react-i18next';
 
 const ResponsiveAppBar = () => {
+  const { lange } = React.useContext(LangContext);
+  const { t } = useTranslation();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -32,7 +28,13 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: '#880808',
+        color: '#eee',
+        direction: lange === 'fa' ? 'rtl' : 'ltr',
+      }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -49,10 +51,14 @@ const ResponsiveAppBar = () => {
               color: 'inherit',
               textDecoration: 'none',
             }}>
-            BLOODY NOVEMBER
+            {t('hometitle.text')}
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'flex', md: 'none', background: '#880808' },
+            }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -79,17 +85,34 @@ const ResponsiveAppBar = () => {
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}>
-              {pages.map((page, i) => (
-                <MenuItem key={i} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">
-                    <Link
-                      sx={{ color: 'inherit', textDecoration: 'none' }}
-                      href={page.href}>
-                      {page.name}
-                    </Link>
-                  </Typography>
-                </MenuItem>
-              ))}
+              <MenuItem
+                onClick={handleCloseNavMenu}
+                sx={{
+                  background: '#880808',
+                  color: '#eee',
+                }}>
+                <Typography textAlign="center">
+                  <Link
+                    sx={{ color: 'inherit', textDecoration: 'none' }}
+                    href="/">
+                    {t('navbar1.text')}
+                  </Link>
+                </Typography>
+              </MenuItem>
+              <MenuItem
+                onClick={handleCloseNavMenu}
+                sx={{
+                  background: '#880808',
+                  color: '#eee',
+                }}>
+                <Typography textAlign="center">
+                  <Link
+                    sx={{ color: 'inherit', textDecoration: 'none' }}
+                    href="/home">
+                    {t('navbar2.text')}
+                  </Link>
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -107,21 +130,25 @@ const ResponsiveAppBar = () => {
               color: 'inherit',
               textDecoration: 'none',
             }}>
-            BLOODY NOV
+            {t('hometitle.text')}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page, i) => (
-              <Button
-                key={i}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}>
-                <Link
-                  href={page.href ? page.href : '#'}
-                  sx={{ color: 'inherit', textDecoration: 'none' }}>
-                  {page.name}
-                </Link>
-              </Button>
-            ))}
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Link href="/" sx={{ color: 'inherit', textDecoration: 'none' }}>
+                {t('navbar1.text')}
+              </Link>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Link
+                href="/home"
+                sx={{ color: 'inherit', textDecoration: 'none' }}>
+                {t('navbar2.text')}
+              </Link>
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

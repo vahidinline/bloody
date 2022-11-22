@@ -5,7 +5,6 @@ import { Grid, Input, LinearProgress, Paper, Typography } from '@mui/material';
 import Tables from './Tables';
 import CircleProgressBar from './CircleProgressBar';
 import list from '../data/bloodies';
-import ListOfcities from './ListOfCities';
 import './../config/i18n';
 import { useTranslation } from 'react-i18next';
 import Navbars from './navbar';

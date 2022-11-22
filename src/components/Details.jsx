@@ -1,29 +1,19 @@
-import {
-  Grid,
-  ImageList,
-  ImageListItem,
-  ImageListItemBar,
-  Typography,
-} from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { useLocation } from 'react-router-dom';
 import Maps from './Map';
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Fade from '@mui/material/Fade';
-import Navbars from './navbar';
+import { useTranslation } from 'react-i18next';
 
 function ScrollTop(props) {
   const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
     disableHysteresis: true,
@@ -56,16 +46,13 @@ function ScrollTop(props) {
 
 ScrollTop.propTypes = {
   children: PropTypes.element.isRequired,
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 
 const Details = (props) => {
   const location = useLocation();
 
+  const { t } = useTranslation();
   console.log(location);
   return (
     <Container>
@@ -78,9 +65,12 @@ const Details = (props) => {
               component="h1"
               sx={{
                 fontFamily: 'Noto Sans Arabic',
-                fontSize: '6rem',
+                fontSize: '4rem',
                 flexWrap: 'wrap',
                 textAlign: 'center',
+                fontWeight: 'bold',
+                marginTop: '1rem',
+                marginBottom: '1rem',
               }}>
               {location.state.row.name}
             </Typography>
@@ -110,15 +100,16 @@ const Details = (props) => {
               sx={{
                 fontFamily: 'Noto Sans Arabic',
                 fontSize: '1rem',
-              }}>
-              ساله
-            </Typography>
+              }}></Typography>
             <Typography
               sx={{
                 fontFamily: 'Noto Sans Arabic',
                 fontSize: '1rem',
               }}>
-              {location.state.row.Age}
+              {t('detailsAge.text')}
+              {location.state.row.Age === 'نامشخص'
+                ? `نامشخص`
+                : location.state.row.Age}
             </Typography>
           </Grid>
           <Grid>
@@ -128,15 +119,25 @@ const Details = (props) => {
                 fontSize: '1rem',
                 textAlign: 'center',
               }}>
+              {t('detailsCause.text')}
               {location.state.row.Cause}
             </Typography>
           </Grid>
-
+          <Grid>
+            <Typography
+              sx={{
+                fontFamily: 'Noto Sans Arabic',
+                fontSize: '1rem',
+                textAlign: 'center',
+              }}>
+              {t('detailsLocation.text')}
+              {location.state.row.Location}
+            </Typography>
+          </Grid>
           <Grid item xs={12} m={0}>
             <Maps latitude={'35.8439'} longitude={'50.9715'} />
           </Grid>
         </Grid>
-        }
       </Container>
       <ScrollTop {...props}>
         <Fab size="small" aria-label="scroll back to top">

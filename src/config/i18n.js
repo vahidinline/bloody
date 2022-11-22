@@ -7,7 +7,7 @@ i18n
       en: {
         translation: {
           hometitle: {
-            text: 'bloody november',
+            text: 'bloody november 2019',
           },
           infotext: {
             text: `
@@ -20,15 +20,45 @@ i18n
             The uprising, as well as the wider Iranian Democracy Movement in general, differed from earlier protests in 2009 in not being limited to students and large cities, and in the speed, severity, and higher death toll of the government crackdown, which crushed the uprising in three days. However, protests flared up periodically in the months after.
             `,
           },
+          navbar1: {
+            text: 'Home',
+          },
+          navbar2: {
+            text: 'Victims',
+          },
           infobutton: {
-            text: 'Watch More',
+            text: ' Victims',
+          },
+          detailsUnknown: {
+            text: 'unknown: ',
+          },
+          detailsName: {
+            text: 'Name: ',
+          },
+          detailsAge: {
+            text: 'age: ',
+          },
+          detailsCause: {
+            text: 'Cause: ',
+          },
+          detailsDate: {
+            text: 'Date: ',
+          },
+          detailsLocation: {
+            text: 'Location: ',
           },
         },
       },
       fa: {
         translation: {
           hometitle: {
-            text: 'آبان خونین',
+            text: 'آبان خونین ۱۳۹۸',
+          },
+          navbar1: {
+            text: 'صفحه اصلی',
+          },
+          navbar2: {
+            text: 'لیست جانباختگان',
           },
           infotext: {
             text: `اعتراضات آبان ۱۳۹۸ ایران یا آبان خونین مجموعهٔ اعتراضات مردمی و ضد حکومتی در سراسر ایران بود که در ۲۴ آبان ۱۳۹۸ و پس از انجام مجدد سهمیه‌بندی بنزین در ایران و افزایش ۲۰۰ درصدی قیمت بنزین آغاز شد. این اعتراضات که عمدتاً در محلات کارگری و فقیرنشین شهری متمرکز و در ابتدا مسالمت‌آمیز بود، در واکنش به افزایش قیمت بنزین آغاز شد ولی سپس نظام جمهوری اسلامی ایران و رهبران روحانی آن را هدف گرفت. بر اساس گزارش نهادهای امنیتی ایران، ۲۹ استان و صدها شهر دستخوش ناآرامی‌های پس از افزایش قیمت بنزین بودند. این اعتراضات به خشن ترین و شدیدترین ناآرامی های ضد دولتی از زمان ظهور جمهوری اسلامی ایران در سال 1979 تبدیل شد.
@@ -41,7 +71,25 @@ i18n
             `,
           },
           infobutton: {
-            text: 'اطلاعات بیشتر',
+            text: 'لیست جانباختگان',
+          },
+          detailsUnknown: {
+            text: 'نامشخص: ',
+          },
+          detailsName: {
+            text: 'نام: ',
+          },
+          detailsAge: {
+            text: 'سن: ',
+          },
+          detailsCause: {
+            text: 'دلیل مرگ : ',
+          },
+          detailsDate: {
+            text: 'تاریخ: ',
+          },
+          detailsLocation: {
+            text: 'محل کشته شدن: ',
           },
         },
       },
