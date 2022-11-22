@@ -1,66 +1,26 @@
-import React from 'react';
+import React, { useState, createContext, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import i18next from 'i18next';
-import {
-  Button,
-  List,
-  ListItem,
-  ListSubheader,
-  Popover,
-  Select,
-} from '@mui/material';
+import LangContext from './config/LangContext';
 
-const languageMap = {
-  en: { label: 'English', dir: 'ltr', active: true },
-  fa: { label: 'فارسی', dir: 'rtl', active: false },
-};
+const DropdownLanguage = () => {
+  const { lange, setLange } = useContext(LangContext);
+  console.log(lange);
+  const { i18n } = useTranslation();
+  const [language, setLanguage] = useState('');
 
-const LanguageSelect = () => {
-  const selected = localStorage.getItem('i18nextLng') || 'en';
-  const { t } = useTranslation();
-
-  const [menuAnchor, setMenuAnchor] = React.useState(null);
-  React.useEffect(() => {
-    document.body.dir = languageMap[selected].dir;
-  }, [menuAnchor, selected]);
+  const handleLangChange = (evt) => {
+    const lang = evt.target.value;
+    setLange(lang);
+    setLanguage(lang);
+    i18n.changeLanguage(lang);
+  };
 
   return (
-    <div className="d-flex justify-content-end align-items-center language-select-root">
-      <Button onClick={({ currentTarget }) => setMenuAnchor(currentTarget)}>
-        {languageMap[selected].label}
-        <Select fontSize="small" />
-      </Button>
-      <Popover
-        open={!!menuAnchor}
-        anchorEl={menuAnchor}
-        onClose={() => setMenuAnchor(null)}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}>
-        <div>
-          <List>
-            <ListSubheader>{t('select_language')}</ListSubheader>
-            {Object.keys(languageMap)?.map((item) => (
-              <ListItem
-                button
-                key={item}
-                onClick={() => {
-                  i18next.changeLanguage(item);
-                  setMenuAnchor(null);
-                }}>
-                {languageMap[item].label}
-              </ListItem>
-            ))}
-          </List>
-        </div>
-      </Popover>
-    </div>
+    <select onChange={handleLangChange} value={language}>
+      <option value="fa">FA</option>
+      <option value="en">EN</option>
+    </select>
   );
 };
 
-export default LanguageSelect;
+export default DropdownLanguage;

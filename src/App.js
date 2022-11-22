@@ -1,33 +1,40 @@
 import './App.css';
-import { Container } from '@mui/system';
-import { CssBaseline, Grid } from '@mui/material';
+import { CssBaseline } from '@mui/material';
 import Home from './components/HomePage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Details from './components/Details';
+import Info from './components/infoPage';
+import LangContext from './config/LangContext';
+import { useState } from 'react';
+import Navbars from './components/navbar';
+import LangModal from './components/LangModal';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <Info />,
   },
   {
     path: 'details/:id',
     element: <Details />,
   },
+  {
+    path: 'home',
+    element: <Home />,
+  },
 ]);
 function App() {
-  return (
-    <RouterProvider router={router}>
-      <CssBaseline />
+  const [lange, setLange] = useState('');
 
-      <Container>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Home />
-          </Grid>
-        </Grid>
-      </Container>
-    </RouterProvider>
+  return (
+    <LangContext.Provider value={{ lange, setLange }}>
+      <Navbars />
+
+      <RouterProvider router={router}>
+        <CssBaseline />
+        <Info />
+      </RouterProvider>
+    </LangContext.Provider>
   );
 }
 

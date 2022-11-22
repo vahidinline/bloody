@@ -69,7 +69,6 @@ const Details = (props) => {
   console.log(location);
   return (
     <Container>
-      <Navbars />
       <Toolbar id="back-to-top-anchor" />
       <Container>
         <Grid>
@@ -78,7 +77,7 @@ const Details = (props) => {
               variant="h1"
               component="h1"
               sx={{
-                fontFamily: 'Lalezar',
+                fontFamily: 'Noto Sans Arabic',
                 fontSize: '6rem',
                 flexWrap: 'wrap',
                 textAlign: 'center',
@@ -109,14 +108,14 @@ const Details = (props) => {
             }}>
             <Typography
               sx={{
-                fontFamily: 'Lalezar',
+                fontFamily: 'Noto Sans Arabic',
                 fontSize: '1rem',
               }}>
               ساله
             </Typography>
             <Typography
               sx={{
-                fontFamily: 'Lalezar',
+                fontFamily: 'Noto Sans Arabic',
                 fontSize: '1rem',
               }}>
               {location.state.row.Age}
@@ -125,7 +124,7 @@ const Details = (props) => {
           <Grid>
             <Typography
               sx={{
-                fontFamily: 'Lalezar',
+                fontFamily: 'Noto Sans Arabic',
                 fontSize: '1rem',
                 textAlign: 'center',
               }}>

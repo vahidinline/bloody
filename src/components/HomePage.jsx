@@ -34,24 +34,6 @@ function Home() {
     getData();
   }, []);
 
-  function Item(props) {
-    return (
-      <Paper
-        style={{
-          height: '100%',
-
-          flexDirection: 'column',
-          justifyContent: 'center',
-        }}>
-        <img
-          style={{ width: '50%', height: '50%' }}
-          src={props.item.ImageL}
-          alt={props.item.name}
-        />
-        <h2>{props.item.name}</h2>
-      </Paper>
-    );
-  }
   const filterBySearch = (event) => {
     const query = event.target.value;
     var updatedList = [...list];
@@ -61,60 +43,20 @@ function Home() {
     setFilteredList(updatedList);
   };
   return (
-    <Container>
-      <Navbars />
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={10}>
-          {loading ? (
-            <Grid
-              sx={{
-                width: '70%',
-                margin: 'auto',
-                marginTop: '120px',
-              }}>
-              <LinearProgress />
-            </Grid>
-          ) : (
-            <Grid
-              sx={{
-                width: '100%',
-                margin: 'auto',
-                marginTop: '120px',
-              }}></Grid>
-          )}
-        </Grid>
-        <Grid xs={12} md={2}>
-          <Grid
-            sx={{
-              marginTop: '120px',
-              display: 'contents',
-              justifyContent: 'center',
-              alignItems: 'center',
-              textAlign: 'center',
-            }}>
-            <CircleProgressBar numbers={itemsLenth} />
-            <Typography variant="h6" component="div" gutterBottom>
-              {t('hometitle.text')}
-            </Typography>
-
-            <Input
-              sx={{
-                width: '50%',
-                marginTop: '20px',
-                marginBottom: '20px',
-                textAlign: 'center',
-                fontFamily: 'Lalezar',
-              }}
-              placeholder="جستجو"
-              onChange={filterBySearch}
-            />
-          </Grid>
-        </Grid>
-      </Grid>
+    <>
+      <Grid container spacing={2} m={4}></Grid>
       <Grid>
+        <Grid
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            direction: 'rtl',
+          }}>
+          <Input placeholder="جستجو" onChange={filterBySearch} />
+        </Grid>
         <Tables list={filteredList} search={search} />
       </Grid>
-    </Container>
+    </>
   );
 }
 

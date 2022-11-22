@@ -82,14 +82,14 @@ const Tables = (props) => {
                 }}>
                 <TableCell
                   sx={{
-                    fontFamily: 'Lalezar',
+                    fontFamily: 'Noto Sans Arabic',
                   }}
                   align="center">
                   {row.name}
                 </TableCell>
                 <TableCell
                   sx={{
-                    fontFamily: 'Lalezar',
+                    fontFamily: 'Noto Sans Arabic',
                   }}
                   align="center">
                   {row.Age}
