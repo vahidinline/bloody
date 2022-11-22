@@ -23,12 +23,17 @@ export default function Navbars() {
             <MenuIcon />
           </IconButton>
           <Typography
+            onClick={() => {
+              window.location.href = '/';
+            }}
             variant="h6"
             noWrap
             component="div"
             sx={{
               flexGrow: 1,
               display: { xs: 'none', sm: 'block' },
+              cursor: 'pointer',
+              fontWeight: 'bold',
             }}>
             bloody November 2019
           </Typography>
