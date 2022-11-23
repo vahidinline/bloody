@@ -2,40 +2,27 @@ import { Label } from '@mui/icons-material';
 import {
   Button,
   Divider,
-  FormControl,
-  FormLabel,
   Grid,
   List,
-  MenuItem,
-  Select,
   Slider,
   Typography,
   ListItem,
 } from '@mui/material';
 import { Box } from '@mui/system';
-import { t } from 'i18next';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import list from '../data/bloodies';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import LocatioList from './LocationRemoveDublicate';
 
 const Search = () => {
   const navigate = useNavigate();
 
   const { t } = useTranslation();
   const [searchAge, setSearchAge] = useState(['20', '50']);
-  const [searchLocation, setSearchLocation] = useState('بهارستان، تهران');
-  const [Location, setLocation] = useState([]);
-  const [DuplicatedLocation, setDuplicatedLocation] = useState([]);
-  console.log(Location);
+  const [searchLocation, setSearchLocation] = useState('کرج');
   const [filteredList, setFilteredList] = new useState(list);
 
-  const getLocations = async () => {
-    list.map((item) => {
-      setDuplicatedLocation((prev) => [...prev, item.Location]);
-      setLocation([...new Set(DuplicatedLocation)]);
-    });
-  };
   const handleChange = (event, newValue) => {
     setSearchAge(newValue);
   };
@@ -47,9 +34,7 @@ const Search = () => {
       )
     );
   };
-  useEffect(() => {
-    getLocations();
-  }, []);
+
   return (
     <Grid container>
       <Grid
@@ -69,27 +54,10 @@ const Search = () => {
             onChange={handleChange}
             valueLabelDisplay="auto"
           />
-          <FormControl fullWidth>
-            <FormLabel>
-              <Typography>{t('detailsLocation.text')}</Typography>
-            </FormLabel>
-            <Select
-              value={searchLocation}
-              onChange={(e) => setSearchLocation(e.target.value)}>
-              {Location.map((item, i) => (
-                <MenuItem key={i} value={item}>
-                  <Typography
-                    sx={{
-                      justifyContent: 'center',
-                      fontFamily: 'Noto Sans Arabic',
-                      fontWeight: 'bold',
-                    }}>
-                    {item}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+          <LocatioList
+            searchLocation={searchLocation}
+            setSearchLocation={setSearchLocation}
+          />
           <Button
             variant="contained"
             color="primary"

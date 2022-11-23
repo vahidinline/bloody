@@ -12,6 +12,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Fade from '@mui/material/Fade';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
+import LocatioList from './LocationRemoveDublicate';
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -161,6 +162,7 @@ const Details = (props) => {
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
+      <LocatioList />
     </Container>
   );
 };

@@ -119,12 +119,15 @@ const ResponsiveAppBar = () => {
                   background: '#880808',
                   color: '#eee',
                 }}>
-                <Typography textAlign="center">
-                  <Link
-                    sx={{ color: 'inherit', textDecoration: 'none' }}
-                    href="/search">
-                    {t('searchText.text')}
-                  </Link>
+                <Typography
+                  textAlign="center"
+                  sx={{
+                    color: 'inherit',
+                    textDecoration: 'none',
+                    fontFamily:
+                      lange === 'fa' ? 'Noto Sans Arabic' : 'monospace',
+                  }}>
+                  <Link href="/search">{t('searchText.text')}</Link>
                 </Typography>
               </MenuItem>
             </Menu>
