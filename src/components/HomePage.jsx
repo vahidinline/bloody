@@ -18,15 +18,9 @@ function Home() {
   const [search, setSearch] = useState('');
   const [filteredList, setFilteredList] = new useState(list);
 
-  const getLocations = async () => {
-    list.map((item) => {
-      setLocation((prev) => new Set([...prev, item.Location]));
-    });
-  };
-
   const getData = async () => {
     setItemsLenth(list.length);
-    getLocations();
+
     setLoading(false);
   };
 

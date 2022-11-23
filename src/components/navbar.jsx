@@ -113,6 +113,20 @@ const ResponsiveAppBar = () => {
                   </Link>
                 </Typography>
               </MenuItem>
+              <MenuItem
+                onClick={handleCloseNavMenu}
+                sx={{
+                  background: '#880808',
+                  color: '#eee',
+                }}>
+                <Typography textAlign="center">
+                  <Link
+                    sx={{ color: 'inherit', textDecoration: 'none' }}
+                    href="/search">
+                    {t('searchText.text')}
+                  </Link>
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -149,6 +163,15 @@ const ResponsiveAppBar = () => {
                 href="/home"
                 sx={{ color: 'inherit', textDecoration: 'none' }}>
                 {t('navbar2.text')}
+              </Link>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Link
+                href="/search"
+                sx={{ color: 'inherit', textDecoration: 'none' }}>
+                {t('searchText.text')}
               </Link>
             </Button>
           </Box>

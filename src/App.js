@@ -8,6 +8,7 @@ import LangContext from './config/LangContext';
 import { useState } from 'react';
 import Navbars from './components/navbar';
 import LangModal from './components/LangModal';
+import Search from './components/Search';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
     path: 'home',
     element: <Home />,
   },
+  {
+    path: 'search',
+    element: <Search />,
+  },
 ]);
 function App() {
   const [lange, setLange] = useState('');
@@ -32,7 +37,7 @@ function App() {
 
       <RouterProvider router={router}>
         <CssBaseline />
-        <Info />
+        <Search />
       </RouterProvider>
     </LangContext.Provider>
   );

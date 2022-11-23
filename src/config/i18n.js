@@ -47,6 +47,9 @@ i18n
           detailsLocation: {
             text: 'Location: ',
           },
+          searchText: {
+            text: 'Search',
+          },
         },
       },
       fa: {
@@ -90,6 +93,9 @@ i18n
           },
           detailsLocation: {
             text: 'محل کشته شدن: ',
+          },
+          searchText: {
+            text: 'جستجو',
           },
         },
       },
