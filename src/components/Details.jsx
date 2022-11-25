@@ -162,7 +162,6 @@ const Details = (props) => {
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
-      <LocatioList />
     </Container>
   );
 };
